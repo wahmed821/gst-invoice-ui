@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GST Billing Software</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">GST Billing Software</h1>
+      <!-- Billing Information -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4>Billing Information</h4>
+        </div>
+        <div class="card-body">
+          <!-- Date and Bill Number -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="date">Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="date"
+                placeholder="Select date"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="billNumber">Bill Number:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="billNumber"
+                placeholder="Enter bill number"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client Information -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4>Client Information</h4>
+        </div>
+        <div class="card-body">
+          <!-- Client Details -->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="clientName">Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="clientName"
+                placeholder="Enter client name"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="clientPhone">Phone:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="clientPhone"
+                placeholder="Enter phone number"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="clientEmail">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="clientEmail"
+                placeholder="Enter email address"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="clientAddress">Address:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="clientAddress"
+                placeholder="Enter client address"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items and Prices -->
+      <div class="card">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <h4>Items and Prices</h4>
+          <button class="btn btn-primary btn-sm" id="addItem">Add More</button>
+        </div>
+        <div class="card-body">
+          <!-- Table for Items and Prices -->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Item Description</th>
+                <th>Item Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table Row - Add More Rows Dynamically with JavaScript -->
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="itemDescription"
+                    placeholder="Enter item description"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="itemPrice"
+                    placeholder="Enter item price"
+                    required
+                  />
+                </td>
+                <td>
+                  <button class="btn btn-danger btn-sm" id="removeItem">
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- GST and Invoice Summary -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h4>Invoice Summary</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- Left Column (GST Input Fields) -->
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="igst">IGST (%):</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="igst"
+                      placeholder="Enter IGST percentage"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="cgst">CGST (%):</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="cgst"
+                      placeholder="Enter CGST percentage"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sgst">SGST (%):</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="sgst"
+                      placeholder="Enter SGST percentage"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column (Invoice Summary) -->
+            <div class="col-md-4 invoice-summary">
+              <!-- Total Price -->
+              <p>
+                <strong>Total Price:</strong> ₹<span id="totalPrice">0</span>
+              </p>
+              <!-- IGST Price -->
+              <p><strong>IGST Price:</strong> ₹<span id="igstPrice">0</span></p>
+              <!-- CGST Price -->
+              <p><strong>CGST Price:</strong> ₹<span id="cgstPrice">0</span></p>
+              <!-- SGST Price -->
+              <p><strong>SGST Price:</strong> ₹<span id="sgstPrice">0</span></p>
+              <!-- Total Tax -->
+              <p><strong>Total Tax:</strong> ₹<span id="totalTax">0</span></p>
+              <!-- Net Amount -->
+              <p><strong>Net Amount:</strong> ₹<span id="netAmount">0</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Invoice Button -->
+      <div class="text-center mt-4 mb-5">
+        <a href="print.html" class="btn btn-primary btn-lg">
+          Create Invoice
+        </a>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

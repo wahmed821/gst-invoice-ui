@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GST Billing Software</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Reset some default styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Top section styling */
+      .top-section {
+        text-align: center;
+        background-color: #f9f9f9; /* Background color for the top section */
+        color: #222; /* Text color for the top section */
+        padding: 20px;
+      }
+
+      .company-name h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .company-name p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .contact-info {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .invoice-section {
+        background: #fff;
+        padding: 10px;
+        box-shadow: 0 0 5px 5px #ddd;
+      }
+
+      .client-invoice,
+      .pricing {
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+      .client-invoice h4 {
+        font-size: 15px;
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+      }
+      .client-invoice p,
+      .pricing p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .bank-info {
+        background: #f9f9f9;
+        padding: 10px;
+        text-align: center;
+      }
+      .bank-info h1 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .pricing p {
+        text-align: right;
+      }
+      .pricing p strong {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Bootstrap Container -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-12 invoice-section">
+          <div class="row">
+            <!-- Top Section -->
+            <div class="col-md-12">
+              <div class="top-section">
+                <div class="company-name">
+                  <h2>ABC Electronics</h2>
+                  <p>123 Main Street, Pune, Maharashtra - 334111 India</p>
+                </div>
+                <div class="contact-info">
+                  <b>Phone:</b> (123) 456-7890 <span>|</span>
+                  <b>Email:</b>info@abc-electronics.com <span>|</span>
+                  <b>Website:</b> www.abc-electronics.com <span>|</span>
+                  <b>GSTIN NO:</b> SF89ASDF987FSD
+                </div>
+              </div>
+            </div>
+
+            <!-- 2nd Section -->
+            <div class="col-md-12">
+              <div class="client-invoice mt-2">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h4>Client Details</h4>
+                    <p><b>Name: </b> Jay Kumar</p>
+                    <p><b>Address: </b> JNV colony, Bikaner</p>
+                    <p><b>Phone: </b> 88001 02361</p>
+                    <p><b>Email: </b> jaykumar@gmail.com</p>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Invoice Details</h4>
+                    <p><b>Invoice No: </b> 1001</p>
+                    <p><b>Date: </b> 12 September 2023</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3rd Section -->
+            <div class="col-md-12 mt-2">
+              <div class="items">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Item Description</th>
+                      <th>Item Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Item 1</td>
+                      <td>₹100.00</td>
+                    </tr>
+                    <tr>
+                      <td>Item 2</td>
+                      <td>₹75.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 4th Section -->
+            <div class="col-md-12">
+              <div class="pricing">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="bank-info">
+                      <h1>Bank Details</h1>
+                      <h6>
+                        UCO BANK, ACCOUNT NO: 00192837482701 IFSC: UCBA0001011
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <p>
+                      <strong>Total Price:</strong> ₹<span id="totalPrice"
+                        >2000</span
+                      >
+                    </p>
+                    <p>
+                      <strong>IGST Price:</strong> ₹<span id="igstPrice"
+                        >180</span
+                      >
+                    </p>
+                    <p>
+                      <strong>CGST Price:</strong> ₹<span id="cgstPrice"
+                        >180</span
+                      >
+                    </p>
+                    <p>
+                      <strong>SGST Price:</strong> ₹<span id="sgstPrice"
+                        >0</span
+                      >
+                    </p>
+                    <p>
+                      <strong>Total Tax:</strong> ₹<span id="totalTax"
+                        >360</span
+                      >
+                    </p>
+                    <p>
+                      <strong>Net Amount:</strong> ₹<span id="netAmount"
+                        >2360</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 text-center mt-4 mb-5">
+          <button type="button" class="btn btn-primary btn-lg">
+            Print Invoice
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
